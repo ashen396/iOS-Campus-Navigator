@@ -1,2 +1,2 @@
 # iOS-Campus-Navigator
-Easily navigate.
+Easily navigate within the campus premises.
