@@ -2,11 +2,9 @@ import SwiftUI
 
 struct SignupView: View{
     @State private var username: String = ""
-    @State private var selectedBatch: String = "Batch"
-    @State private var selectedBranch: String = ""
-    @State private var isDropdownOpen = false
+    @State private var selecteBatch: String = ""
+    @State private var selecteBranch: String = ""
 
-    
     let batches = ["DSE", "HDSE", "DNE", "HDNE"]
     let branch = ["Colombo", "Galle", "Kurunagala"]
     
@@ -35,48 +33,22 @@ struct SignupView: View{
                 .padding(.horizontal, 20)
                 .padding(.top, 10)
             
-            VStack {
-                Button(action: {isDropdownOpen.toggle()}) {
-                    HStack {
-                        Text(selectedBatch)
-                            .foregroundColor(.black)
-                            .padding()
-                            .cornerRadius(10)
-                        
-                        Spacer()
-                        
-                        Image(systemName: "arrowtriangle.down.fill")
-                            .foregroundColor(.black)
-                    }
-                    .padding(.horizontal)
-                    .frame(height: 50)
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
+            HStack{
+                Text("Batch")
+                    .padding(.trailing,250)
+                Picker("Batch",selection: $selecteBatch){
+                    ForEach(batches, id: \.self){ batch in Text(batch).tag(batch)}
                 }
-                .overlay(
-                    VStack {
-                        if isDropdownOpen {
-                            VStack(alignment: .leading) {
-                                ForEach(batches, id: \.self) { batch in
-                                    Button(action: {
-                                        selectedBatch = batch
-                                        isDropdownOpen = false
-                                    }) {
-                                        Text(batch)
-                                            .padding()
-                                            .foregroundColor(.black)
-                                    }
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color.gray.opacity(0.1))
-                                }
-                            }
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
-                        }
-                    }
-                )
             }
-                        
+            .padding(8)
+            .frame(width: 363, height: 45)
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(10)
+            .foregroundColor(Color.gray.opacity(0.5))
+            .overlay(RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray.opacity(0.3), lineWidth: 1))
+            .padding(.horizontal)
+            
             TextField("Branch", text: $username)
                 .padding(12)
                 .background(Color.gray.opacity(0.1))
@@ -87,6 +59,7 @@ struct SignupView: View{
                 )
                 .padding(.horizontal, 20)
                 .padding(.top, 10)
+                
             TextField("Email", text: $username)
                 .padding(12)
                 .background(Color.gray.opacity(0.1))
