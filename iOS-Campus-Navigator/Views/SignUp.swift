@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct SignUp: View {
+    @Environment(\.presentationMode) var presentationMode
     var body: some View{
         VStack{
             Text("Create a new account")
@@ -32,12 +33,12 @@ struct SignUp: View {
                     .padding(.bottom, 8)
             }
             
-            CustomButton(title: "Sign Up")
-                .padding(.top, 8)
+            CustomButton(title: "Sign Up", action: { self.presentationMode.wrappedValue.dismiss()
+            })
+                
             
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
         .padding(.top, 15)
-//        .navigationBarTitle(Text("Create a new account"))
     }
 }
 

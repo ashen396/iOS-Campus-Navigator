@@ -51,7 +51,7 @@ struct Login:View{
                                 
                             }.frame(width: 300, height: 40)
                             
-                            CustomButton(title: "Login")
+                            NavigationButton(title: "Login", dest: Homepage())
                         }.padding(.top, 25)
                         .padding(.bottom, 25)
                     )

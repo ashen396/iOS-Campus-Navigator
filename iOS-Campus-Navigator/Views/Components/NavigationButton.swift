@@ -1,5 +1,5 @@
 //
-//  CustomButton.swift
+//  NavigationButton.swift
 //  test-swiftui
 //
 //  Created by Mac on 2/26/25.
@@ -8,15 +8,15 @@
 import Foundation
 import SwiftUI
 
-struct CustomButton: View{
+struct NavigationButton<Destination: View>: View{
     
     @State var title = "Button"
-    @State var action: (() -> Void)?
+    var dest: Destination
     
     var body: some View{
-        Button(action: {
-            action?()
-        }, label: {
+        NavigationLink(
+            destination: dest,
+            label: {
             Color(red: 0.259, green: 0.624, blue: 1)
                 .frame(width: 200, height: 30, alignment: .top)
                 .padding(0)
@@ -31,8 +31,8 @@ struct CustomButton: View{
     }
 }
 
-struct CustomButton_Previews: PreviewProvider{
-    static var previews: some View{
-        CustomButton(action: nil)
-    }
-}
+//struct NavigationButton_Previews: PreviewProvider{
+//    static var previews: some View{
+//        NavigationButton()
+//    }
+//}
