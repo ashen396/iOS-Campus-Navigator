@@ -2,6 +2,11 @@ import SwiftUI
 
 struct SignupView: View{
     @State private var username: String = ""
+    @State private var studID: String = ""
+    @State private var email: String = ""
+    @State private var mobile: String = ""
+    @State private var password: String = ""
+    @State private var confirmPass: String = ""
     @State private var selecteBatch: String = ""
     @State private var selecteBranch: String = ""
 
@@ -22,7 +27,7 @@ struct SignupView: View{
                 )
                 .padding(.horizontal, 20)
                 .padding(.top, 20)
-            TextField("Student ID", text: $username)
+            TextField("Student ID", text: $studID)
                 .padding(12)
                 .background(Color.gray.opacity(0.1))
                 .cornerRadius(10)
@@ -49,18 +54,23 @@ struct SignupView: View{
                         .stroke(Color.gray.opacity(0.3), lineWidth: 1))
             .padding(.horizontal)
             
-            TextField("Branch", text: $username)
-                .padding(12)
-                .background(Color.gray.opacity(0.1))
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-                )
-                .padding(.horizontal, 20)
-                .padding(.top, 10)
+            HStack{
+                Text("Branch")
+                    .padding(.trailing)
+                Picker("Branch",selection: $selecteBranch){
+                    ForEach(branch, id: \.self){ branch in Text(branch).tag(branch)}
+                }.padding(.leading,100).frame(width: 250, height: 45)
+            }
+            .padding(8)
+            .frame(width: 363, height: 45)
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(10)
+            .foregroundColor(Color.gray.opacity(0.5))
+            .overlay(RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray.opacity(0.3), lineWidth: 1))
+            .padding(.horizontal)
                 
-            TextField("Email", text: $username)
+            TextField("Email", text: $email)
                 .padding(12)
                 .background(Color.gray.opacity(0.1))
                 .cornerRadius(10)
@@ -70,7 +80,7 @@ struct SignupView: View{
                 )
                 .padding(.horizontal, 20)
                 .padding(.top, 10)
-            TextField("Mobile", text: $username)
+            TextField("Mobile", text: $mobile)
                 .padding(12)
                 .background(Color.gray.opacity(0.1))
                 .cornerRadius(10)
@@ -80,7 +90,7 @@ struct SignupView: View{
                 )
                 .padding(.horizontal, 20)
                 .padding(.top, 10)
-            TextField("Password", text: $username)
+            TextField("Password", text: $password)
                 .padding(12)
                 .background(Color.gray.opacity(0.1))
                 .cornerRadius(10)
@@ -90,7 +100,7 @@ struct SignupView: View{
                 )
                 .padding(.horizontal, 20)
                 .padding(.top, 10)
-            TextField("Confirm Password", text: $username)
+            TextField("Confirm Password", text: $confirmPass)
                 .padding(12)
                 .background(Color.gray.opacity(0.1))
                 .cornerRadius(10)
