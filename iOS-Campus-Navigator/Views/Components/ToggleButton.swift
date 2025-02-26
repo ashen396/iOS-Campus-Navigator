@@ -27,7 +27,7 @@ struct ToggleButton: View{
                             .foregroundColor(Color(red: 0, green: 0, blue: 0))
                         .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0)) : nil
                     )
-                Text("Remember Me?")
+                Text("Remember Me")
                     .font(.footnote)
                     .foregroundColor(Color(red: 0.584, green: 0.584, blue: 0.584))
             }
