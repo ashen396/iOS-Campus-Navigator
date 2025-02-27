@@ -10,15 +10,25 @@ import SwiftUI
 
 struct GroupChat: View{
     var body: some View{
-        HStack{
+        VStack(alignment: .leading){
             HStack{
-                Image(systemName: "arrow.left")
-                Text("Back")
-            }
+                BackButton()
+                
+                Spacer()
+                SearchField()
+                    .frame(width: 20, height: 40)
+                    .padding(.trailing, 80)
+            }.padding(.horizontal, 10)
+                .navigationBarHidden(true)
             
-            Spacer()
-            SearchField()
-        }.padding(.horizontal, 10)
+            SegmentPicker(title: "ChatrPicker", list: ["Group Chat", "Location Chat"], pickedItem: "Group Chat")
+                .frame(minWidth:0, maxWidth: .infinity, minHeight: 0, maxHeight: 0, alignment: .center)
+                .padding(.top, 20)
+            
+            GroupMessages()
+            
+        }.frame(minWidth:0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
+            .padding(.top, 20)
     }
 }
 
