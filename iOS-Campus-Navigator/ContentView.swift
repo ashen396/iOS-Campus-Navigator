@@ -7,12 +7,14 @@
 
 import SwiftUI
 import CoreLocation
+import CoreData
 
 struct ContentView: View {
 //    @State private var mouseLoc = CGSize.zero
 //    @State private var offset = CGSize.zero
 //    @State private var size = CGSize.zero
 //    @StateObject private var locManager = LocationManager()
+   
     
     var body: some View {
 //        GeometryReader { geo in
@@ -132,6 +134,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
+            .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
     }
 }
+

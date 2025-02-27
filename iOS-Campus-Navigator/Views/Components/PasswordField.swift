@@ -12,7 +12,7 @@ struct PasswordField: View{
     
     @State var title = "Password Field"
     @State private var password = ""
-    @State private var isHidden = false
+    @State private var isHidden = true
     
     var body: some View{
         Color(white: 0, opacity: 0.06)
@@ -20,18 +20,28 @@ struct PasswordField: View{
             .cornerRadius(10)
             .overlay(
                 HStack{
-                    TextField(title, text: $password)
-                        .padding(.all, 10)
-                        .foregroundColor(Color(white: 0, opacity: 0.6))
+                    if isHidden{
+                        SecureField(title, text: $password)
+                            .padding(.all, 10)
+                            .foregroundColor(Color(white: 0, opacity: 0.6))
+                                                   
+                    }
+                    else{
+                        TextField(title, text: $password)
+                            .padding(.all, 10)
+                            .foregroundColor(Color(white: 0, opacity: 0.6))
+                        
+                    }
+                    Spacer()
                     
                     Button(action: {
-                        isHidden = !isHidden
+                        isHidden.toggle()
                     }, label: {
                         Image(systemName: isHidden ? "eye" : "eye.slash")
-                                .resizable()
-                                .frame(width: 20, height: 16)
+                            .resizable()
+                            .frame(width: 20, height: 16)
                             .opacity(1)
-                                        .padding(.all, 10)
+                            .padding(.all, 10)
                             .foregroundColor(Color(white: 0, opacity: 0.4))
                     })
                 }
