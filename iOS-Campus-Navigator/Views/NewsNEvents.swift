@@ -1,15 +1,14 @@
 //
-//  Shuttle.swift
+//  NewsNEvents.swift
 //  iOS-Campus-Navigator
 //
-//  Created by Udana 004 on 2025-02-28.
+//  Created by Gimantha 044 on 2025-02-28.
 //
 
 import Foundation
 import SwiftUI
 
-struct Shuttle: View{
-    
+struct NewsNEvents: View{
     var body: some View{
         VStack{
             VStack{
@@ -25,7 +24,7 @@ struct Shuttle: View{
                 }.frame(width: .infinity, height: 20, alignment: .top)
             }.padding(.bottom, 20)
             
-            Text("Available shuttles:")
+            Text("News & Events:")
                 .font(.title2)
                 .fontWeight(.bold)
             ScrollView{
@@ -41,8 +40,8 @@ struct Shuttle: View{
     }
 }
 
-struct Shuttle_Previews: PreviewProvider{
+struct NewsNEvents_Previews: PreviewProvider{
     static var previews: some View{
-        Shuttle()
+        NewsNEvents()
     }
 }

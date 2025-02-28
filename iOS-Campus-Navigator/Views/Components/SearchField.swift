@@ -12,11 +12,12 @@ import SwiftUI
 struct SearchField: View{
     
     @State var title = "Search"
+    @State var frameWidth: CGFloat = 180
     @State private var text = ""
     
     var body: some View{
         Color(white: 0, opacity: 0.06)
-            .frame(width: 180, height: 30)
+            .frame(width: frameWidth, height: 30)
             .cornerRadius(10)
             .overlay(
                 HStack{
@@ -30,7 +31,7 @@ struct SearchField: View{
                                 .resizable()
                                 .frame(width: 15, height: 15, alignment: .leading)
                                 .opacity(0.2)
-                                .padding(.trailing, 130)
+                                .padding(.trailing, (frameWidth - 50))
                         )
                 }
             ).overlay(

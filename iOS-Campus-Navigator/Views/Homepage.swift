@@ -46,10 +46,13 @@ struct Homepage: View {
             }.padding(.top, 10)
             
             HStack{
-                CardView(width: 160, height: 100, cornerRadius: 13, overlayOpacity: 0.6, title: "NAVIGATION", borderLineWidth: 2, overlayImage: "ShuttleIcon", overlaySize: 40, colors: [Color(red: 0.83, green: 0.58, blue: 0.20), Color(red: 0.66, green: 0.46, blue: 0.15)])
-                    .padding(.trailing, 20)
-                
-                CardView(width: 160, height: 100, cornerRadius: 13, overlayOpacity: 0.6, title: "NAVIGATION", borderLineWidth: 2, overlayImage: "GuidelinesIcon", overlaySize: 40, colors: [Color(red: 0.36, green: 0.76, blue: 0.34), Color(red: 0.29, green: 0.63, blue: 0.28)])
+                NavigationLink(destination: Shuttle()){
+                    CardView(width: 160, height: 100, cornerRadius: 13, overlayOpacity: 0.6, title: "SHUTTLE", borderLineWidth: 2, overlayImage: "ShuttleIcon", overlaySize: 40, colors: [Color(red: 0.83, green: 0.58, blue: 0.20), Color(red: 0.66, green: 0.46, blue: 0.15)])
+                        .padding(.trailing, 20)
+                }
+                NavigationLink(destination: Guideline()){
+                    CardView(width: 160, height: 100, cornerRadius: 13, overlayOpacity: 0.6, title: "GUIDELINES", borderLineWidth: 2, overlayImage: "GuidelinesIcon", overlaySize: 40, colors: [Color(red: 0.36, green: 0.76, blue: 0.34), Color(red: 0.29, green: 0.63, blue: 0.28)])
+                }
             }.padding(.top, 10)
             
         }.navigationBarHidden(true)

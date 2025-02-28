@@ -14,11 +14,16 @@ struct RouteCard: View {
     @State var subtitle = "Title"
     @State var depart = "00:00 AM"
     @State var arival = "02:00 AM"
+    @State var imageName = "Map"
     
     var body: some View{
         VStack{
-            Color(white: 0, opacity: 0.06)
-                .frame(width: 280, height: 150)
+//            Color(white: 0, opacity: 0.06)
+//                .frame(width: 280, height: 150)
+//                .cornerRadius(10)
+            Image(imageName)
+                .resizable()
+                .frame(width: 350, height: 150)
                 .cornerRadius(10)
             VStack{
                 Text(title).font(.system(size:20)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .leading)
@@ -41,13 +46,12 @@ struct RouteCard: View {
        }.overlay(
         RoundedRectangle(cornerRadius: 10)
             .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-    )
-        .frame(width: 280)
+       )
+        .frame(width: 350)
         .background(Color.white)
         .overlay(RoundedRectangle(cornerRadius: 10)
-        .stroke(Color.gray.opacity(0.3), lineWidth:1)).background(Color.gray.opacity(0.1).cornerRadius(10))
-        
-        
+        .stroke(Color.gray.opacity(0.3), lineWidth:1))
+        .background(Color.gray.opacity(0.1).cornerRadius(10))
     }
 }
 

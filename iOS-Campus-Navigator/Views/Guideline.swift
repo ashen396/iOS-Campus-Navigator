@@ -1,7 +1,7 @@
 import SwiftUI
 import Foundation
 
-struct GuidelinesView: View {
+struct Guideline: View {
     @State private var isLabExpanded = false
     @State private var isLibExpanded = false
     @State private var isCanExpanded = false
@@ -169,8 +169,8 @@ struct GuidelinesView: View {
     }
 }
 
-struct GuidelinesView_Previews: PreviewProvider {
+struct Guideline_Previews: PreviewProvider {
     static var previews: some View {
-        GuidelinesView()
+        Guideline()
     }
 }

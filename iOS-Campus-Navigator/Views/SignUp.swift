@@ -43,6 +43,7 @@ struct SignUp: View {
                 
             
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
+            .navigationBarBackButtonHidden(true)
         .padding(.top)
     }
 }
