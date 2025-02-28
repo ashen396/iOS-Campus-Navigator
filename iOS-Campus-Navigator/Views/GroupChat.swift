@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct GroupChat: View{
+    
     var body: some View{
         VStack(alignment: .leading){
             HStack{
@@ -21,11 +22,52 @@ struct GroupChat: View{
             }.padding(.horizontal, 10)
                 .navigationBarHidden(true)
             
-            SegmentPicker(title: "ChatrPicker", list: ["Group Chat", "Location Chat"], pickedItem: "Group Chat")
-                .frame(minWidth:0, maxWidth: .infinity, minHeight: 0, maxHeight: 0, alignment: .center)
-                .padding(.top, 20)
+            HStack{
+                SegmentPicker(title: "ChatPicker", list: ["Group Chat", "Location Chat"], pickedItem: "Group Chat")
+                    .frame(minWidth:0, maxWidth: .infinity, minHeight: 0, maxHeight: 0, alignment: .center)
+                    .padding(.top, 20)
+            }
+            HStack{
+                GroupMessages()
+            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 400, alignment: .top)
+            .padding(.horizontal, 10)
             
-            GroupMessages()
+            VStack{
+                HStack{
+                    SegmentPicker(title: "ResponsePicker", list: ["Requests", "Responses"], pickedItem: "Requests")
+                        .frame(minWidth:0, maxWidth: .infinity, minHeight: 0, maxHeight: 0, alignment: .center)
+                        .padding(.top, 20)
+                }
+                
+                VStack{
+                    HStack{
+                        Button(action: {
+                            print("Available")
+                        }, label: {
+                            ChipButton(width: 120, buttonText: "+ Available")
+                        })
+                        
+                        ChipButton(width: 120, buttonText: "+ Unvailable")
+                        ChipButton(width: 100, buttonText: "+ Lab 01")
+                    }.padding(.top, 40)
+                    
+                    HStack{
+                        ChipButton(width: 180, buttonText: "+ Location Crowded")
+                        ChipButton(width: 140, buttonText: "+ Seminar Hall")
+                    }.padding(.top, 10)
+                    
+                    HStack{
+                        InputField(title: "Type Message")
+                            .padding(.top, 40)
+                        
+                        Image(systemName: "arrowtriangle.right.circle.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40, alignment: .center)
+                            .padding(.top, 40)
+                            .padding(.leading, 20)
+                    }
+                }
+            }
             
         }.frame(minWidth:0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
             .padding(.top, 20)
