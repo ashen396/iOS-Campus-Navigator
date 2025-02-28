@@ -30,7 +30,9 @@ struct Homepage: View {
             CardView(image: "NewsNEvents", width: 358, height: 172, cornerRadius: 13, overlayOpacity: 0.6, title: "NEWS & EVENTS", borderLineWidth: 4, overlayImage: "NewsEventsIcon", overlaySize: 50)
                 .padding(.bottom, 10)
             
-            CardView(image: "Navigation", width: 358, height: 221, cornerRadius: 13, overlayOpacity: 0.6, title: "NAVIGATION", borderLineWidth: 4, overlayImage: "NavigationIcon", overlaySize: 50)
+            NavigationLink(destination: Map()){
+                CardView(image: "Navigation", width: 358, height: 221, cornerRadius: 13, overlayOpacity: 0.6, title: "NAVIGATION", borderLineWidth: 4, overlayImage: "NavigationIcon", overlaySize: 50)
+            }
             
             HStack{
                 NavigationLink(destination: GroupChat()){
@@ -38,7 +40,9 @@ struct Homepage: View {
                         .padding(.trailing, 20)
                 }
                 
-                CardView(width: 160, height: 100, cornerRadius: 13, overlayOpacity: 0.6, title: "SCHEDULE", borderLineWidth: 2, overlayImage: "ScheduleIcon", overlaySize: 40, colors: [Color(red: 0.81, green: 0.4, blue: 0.38), Color(red: 0.67, green: 0.34, blue: 0.33)])
+                NavigationLink(destination: Schedule()){
+                    CardView(width: 160, height: 100, cornerRadius: 13, overlayOpacity: 0.6, title: "SCHEDULE", borderLineWidth: 2, overlayImage: "ScheduleIcon", overlaySize: 40, colors: [Color(red: 0.81, green: 0.4, blue: 0.38), Color(red: 0.67, green: 0.34, blue: 0.33)])
+                }
             }.padding(.top, 10)
             
             HStack{

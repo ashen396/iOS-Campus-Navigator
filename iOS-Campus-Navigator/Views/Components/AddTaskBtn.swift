@@ -1,19 +1,19 @@
 import Foundation
 import SwiftUI
 
-struct Item: Identifiable {
-    let id = UUID()
-    var name: String
-    var description: String
-    var starttime: String
-    var endtime: String
-}
+//struct Item: Identifiable {
+//    let id = UUID()
+//    var name: String
+//    var description: String
+//    var starttime: String
+//    var endtime: String
+//}
 
 struct AddTaskBtn: View {
     @State private var date = Date()
     @State private var startTime = Date()
     @State private var endTime = Date()
-    @State private var items = [Item]()
+//    @State private var items = [Item]()
     @State private var showTaskForm = false
     @State private var newItemName = ""
     @State private var newItemDescription = ""
@@ -26,34 +26,6 @@ struct AddTaskBtn: View {
 
     var body: some View {
         VStack {
-            HStack{
-                Text("Schedule")
-                    .font(.title2)
-                    .bold()
-                Spacer()
-                DatePicker(" ", selection: $date, displayedComponents: [.date])
-            }
-            .padding(.horizontal, 10)
-            
-            Divider()
-            
-            List(self.items) { item in
-                VStack(alignment: .leading) {
-                    HStack{
-                        Text("Start Time:").font(.caption)
-                        Text(item.starttime).font(.caption)
-                        Text("End Time:").font(.caption)
-                        Text(item.endtime).font(.caption)
-                    }
-                    Divider()
-                    Text(item.name)
-                        .font(.headline)
-                    Text(item.description)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                }
-            }
-         
             if showTaskForm {
                 VStack(spacing: 10) {
                     Text("Add a task")
@@ -76,14 +48,18 @@ struct AddTaskBtn: View {
 
                     TextField("Title", text: $newItemName)
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 30).stroke(Color.gray, lineWidth: 1))
+                        .background(
+                            RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)
+                        )
                         .padding(.horizontal)
                     
                     ZStack(alignment: .topLeading) {
                         TextEditor(text: $newItemDescription)
-                            .frame(height: 100)
+                            .frame(height: 50)
                             .padding()
-                            .background(RoundedRectangle(cornerRadius: 20).stroke(Color.gray, lineWidth: 1))
+                            .background(
+                                RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)
+                            )
                             .padding(.horizontal)
 
                         if newItemDescription.isEmpty {
@@ -92,7 +68,7 @@ struct AddTaskBtn: View {
                                 .padding(.top, 18)
                                 .padding(.leading, 28)
                         }
-                    }
+                    }.padding(.vertical, -15)
                     
                     HStack {
                         Button("Add Task") {
@@ -100,8 +76,8 @@ struct AddTaskBtn: View {
                                 let startString = dateFormatter.string(from: startTime)
                                 let endString = dateFormatter.string(from: endTime)
 
-                                let newItem = Item(name: newItemName, description: newItemDescription, starttime: startString, endtime: endString)
-                                items.append(newItem)
+                                let newItem = Item(title: newItemName, description: newItemDescription, starttime: startString, endtime: endString)
+//                                items.append(newItem)
                                 
                                 newItemName = ""
                                 newItemDescription = ""
