@@ -9,6 +9,12 @@ struct GuidelinesView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
+            HStack{
+                BackButton()
+                Spacer()
+                SearchField()
+            }
+            .padding(.vertical)
             Text("Guidelines")
                 .font(.headline)
                 .bold()
@@ -159,7 +165,7 @@ struct GuidelinesView: View {
                 
             }.frame(width: 380)
             Spacer()
-        }
+        }.padding()
     }
 }
 
