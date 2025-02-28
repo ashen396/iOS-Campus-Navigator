@@ -90,6 +90,7 @@ struct AddTaskBtn: View {
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(50)
+                        
                     }
                     .padding(.horizontal)
                 }

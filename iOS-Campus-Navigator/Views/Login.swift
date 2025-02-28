@@ -13,12 +13,13 @@ struct Login:View{
     var body: some View{
         NavigationView{
             VStack{
-                Color(red: 255, green: 0, blue: 0, opacity: 1)
+                Image("NIBM").resizable()
                     .frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, minHeight: 0, idealHeight: 100, maxHeight: .infinity, alignment: .top)
                     .overlay(
                         Text("Campus Navigator")
-                            .font(.system(size: 48))
-                            .fontWeight(.medium)
+                            .font(.system(size: 64))
+                            .shadow(radius: 3)
+                            .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                             .foregroundColor(.white)
                             .shadow(color: Color.init(white: 0, opacity: 0.08), radius: 14.3, x: 0.0, y: 3.0)

@@ -60,11 +60,12 @@ struct GroupChat: View{
                         InputField(title: "Type Message")
                             .padding(.top, 40)
                         
-                        Image(systemName: "arrowtriangle.right.circle.fill")
+                        Image(systemName: "paperplane.circle.fill")
                             .resizable()
                             .frame(width: 40, height: 40, alignment: .center)
                             .padding(.top, 40)
                             .padding(.leading, 20)
+                            .foregroundColor(.blue)
                     }
                 }
             }
